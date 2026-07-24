@@ -1,15 +1,16 @@
 name: Third Pipeline
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   hello:
     runs-on: ubuntu-latest
 
-    step:
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
