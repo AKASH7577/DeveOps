@@ -4,9 +4,15 @@ on:
   push
   # workflow_dispatch:
 
+env:
+  GLOBAL_APP_ENV: global-dev
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      JOB_APP_ENV: job-dev
 
     steps:
       - name: Say Hello
@@ -27,3 +33,11 @@ jobs:
         with:
           name: demo-artifact
           path: .
+
+  test:
+      runs-on: ubuntu-latest
+      needs: build
+
+      steps:
+        - name: Test job
+          run: echo "TTest job"
