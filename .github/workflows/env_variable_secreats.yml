@@ -1,7 +1,8 @@
 name: Demo CI env Secrets
 
 on:
-  workflow_dispatch:
+  push
+  # workflow_dispatch:
 
 jobs:
   build:
@@ -13,6 +14,6 @@ jobs:
 
       - name: install
         env: 
-          APP_ENV: demo
+          APP_ENV: demo_new
         run: echo "Environment $APP_ENV"
     
