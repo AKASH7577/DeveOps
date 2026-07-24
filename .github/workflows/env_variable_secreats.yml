@@ -17,4 +17,13 @@ jobs:
           APP_ENV: development
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: echo "Environment $APP_ENV using $DB_PASSWORD"
-    
+      
+      - name: Create demo file
+        run: 
+          echo "This is a demo file." > demo.txt
+          echo "File created  successfully."
+      - name: Upload Demo
+        uses: actions/upload-artifact@v7
+        with:
+          name: demo-artifact
+          path: .
